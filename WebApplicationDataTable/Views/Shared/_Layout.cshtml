@@ -7,8 +7,11 @@
     <script type="importmap"></script>    
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/datatables.min.css" />    
+    <link href="~/tabulator/css/tabulator.min.css" rel="stylesheet" />    
+    <link href="~/tabulator/css/tabulator_bootstrap5.min.css" rel="stylesheet" />    
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/WebApplicationDataTable.styles.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/mvc-grid.css" />
 </head>
 <body>
     <header>
@@ -28,7 +31,10 @@
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Cities" asp-action="Index">Grid</a>
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Cities" asp-action="Index">Grid - DataTables</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Tabulator" asp-action="Index">Grid - Tabulator</a>
                         </li>
                     </ul>
                 </div>
@@ -49,6 +55,8 @@
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/datatables.min.js" asp-append-version="false"></script>
+    <script src="~/tabulator/js/tabulator.min.js" asp-append-version="false"></script>
+    <script src="~/js/mvc-grid.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
     @await RenderSectionAsync("Scripts", required: false)
 </body>

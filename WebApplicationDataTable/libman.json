@@ -5,6 +5,10 @@
     {
       "library": "datatables@2.3.7",
       "destination": "wwwroot/datatables/"
+    },
+    {
+      "library": "tabulator@6.4.0",
+      "destination": "wwwroot/tabulator/"
     }
   ]
 }

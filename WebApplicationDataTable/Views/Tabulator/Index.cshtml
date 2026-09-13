@@ -1,0 +1,67 @@
+﻿<div id="table" class="tabulator-sm"></div>
+@section Scripts
+{
+    <script>
+        console.log(Tabulator);
+        var table = new Tabulator("#table", {
+            ajaxURL: "/tabulator/data",
+            ajaxConfig: {
+                method: "POST",
+                // headers: {
+                //     "Content-type": 'application/json; charset=utf-8',
+                // },
+            },
+            locale: "pt-br",
+            langs: {
+                "pt-br": {
+                    pagination: {
+                        first: "Primeira",
+                        last: "Última",
+                        prev: "Anterior",
+                        next: "Próxima",
+                        first_title: "Primeira página",
+                        last_title: "Última página",
+                        prev_title: "Página anterior",
+                        next_title: "Próxima página",
+                        page_size: "Tamanho da página"
+                    },
+                    ajax: {
+                        loading: "Carregando",
+                        error: "Erro"
+                    },
+                    headerFilters: {
+                        default: "Filtrar..."
+                    }, 
+                    data: {
+                        loading: "Carregando...",
+                        error: "Erro ao carregar os dados"
+                    },
+                }
+            },
+            autoColumns: false,
+            pagination: true,
+            paginationMode: "remote",
+            paginationSize: 10,
+            //progressiveLoad: "load",
+            //progressiveLoadDelay: 200,
+            columns: [
+                { title: "Id", field: "id", sorter: "int", width: '15%', editor: false },
+                { title: "Sigla", field: "sigla", sorter: "string", width: '15%', editor: 'input' },
+                { title: "Cidade", field: "city", sorter: "string", width: '35%', editor: true },
+                { title: "Aeroporto", field: "airportName", sorter: "string", width: '35%', editor: true },
+            ], 
+            cellEdited: function(cell) {
+                console.log("EDITOU");
+                console.log(cell.getValue());
+                console.log(cell.getField());
+                console.log(cell.getRow().getData());
+            }
+        });
+        table.on("cellEdited", function(cell) {
+            console.log("EDITOU");
+            console.log(cell.getValue());
+            console.log(cell.getField());
+            console.log(cell.getRow().getData());
+        });
+    </script>
+}
