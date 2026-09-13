@@ -1,4 +1,6 @@
-﻿@{Layout = null;}
+﻿@{
+    Layout = null;
+}
 @model IQueryable<Citiesofworld>
 @(Html
     .Grid(Model)
@@ -6,8 +8,20 @@
     {
         columns.Add(model => model.Id).Titled("Id").Formatted("{0:000000}").AppendCss("text-center").Width("12%");
         columns.Add(model => model.Sigla).Titled("Sigla").AppendCss("text-center").Width("12%");
-        columns.Add(model => model.City).Titled("Cidade").AppendCss("text-start").Width("38%");
-        columns.Add(model => model.AirportName).Titled("Aeroporto").AppendCss("text-start").Width("38%");
+        columns.Add(model => model.City).Titled("Cidade").AppendCss("text-start").Width("32%");
+        columns.Add(model => model.AirportName).Titled("Aeroporto").AppendCss("text-start").Width("32%");
+        @* columns.Add().Titled("Ações").RenderedAs(model => 
+            Html.ActionLink("Editar", "Edit", "Customer", new { id = model.Id }, new { @class = "btn btn-sm btn-primary" })
+        ); *@
+        @* columns.Add().Titled("Ações").RenderedAs(model =>
+            $"<a href=\"{Url.Action("Edit", "Customer", new { id = model.Id })}\" class=\"btn btn-sm btn-primary\"><i class=\"bi bi-pencil-square\"></i> Editar</a>"
+        )
+        .AppendCss("text-center").Width("12%").Encoded(false); *@
+        columns.Add().Titled("Ações")
+            .RenderedAs(model => Html.ButtonEdit("grid", "home", model.Id))
+            .AppendCss("text-center")
+            .Width("12%")
+            .Encoded(false);
     })
     .Empty("Nenhum dado encontrado ...")
     .Css("table table-striped table-hover table-sm")
@@ -19,3 +33,6 @@
     })
     .UsingFooter("_GridFooter")
 )
+<vc:button-edit id="1" action="Grid" controller="Home"></vc:button-edit>
+
+        
