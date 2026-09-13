@@ -1,19 +1,4 @@
-﻿@using NonFactors.Mvc.Grid
-@model IQueryable<Citiesofworld>
-
-@(Html
-    .Grid(Model)
-    .Build(columns =>
-    {
-        columns.Add(model => model.Id).Titled("Id");
-        columns.Add(model => model.Sigla).Titled("Sigla");
-        columns.Add(model => model.City).Titled("Cidade");
-        columns.Add(model => model.AirportName).Titled("Aeroporto");
-        //columns.Add(model => model.Birthday).Titled("Birthday").Formatted("{0:d}");
-        //columns.Add(model => model.IsWorking).Titled("Employed");
-    })
-    .Empty("Nenhum dado encontrado ...")
-    .Filterable()
-    .Sortable()
-    .Pageable()
-)
+﻿@Html.AjaxGrid(Url.Action("Grid"))
+@section Scripts {
+    <script></script>
+}

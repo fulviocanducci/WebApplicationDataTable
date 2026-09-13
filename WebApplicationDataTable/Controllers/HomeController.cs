@@ -53,7 +53,11 @@ namespace WebApplicationDataTable.Controllers
 
         public IActionResult Grid([FromServices] S2Context context)
         {
-            return View(context.Citiesofworlds);
+            if (HttpContext.Request.Headers.XRequestedWith == "XMLHttpRequest")
+            {
+                return PartialView("_Grid", context.Citiesofworlds);
+            }
+            return View();
         }
 
         public IActionResult Privacy()

@@ -16,6 +16,7 @@
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
     <PackageReference Include="MySql.Data" Version="26.7.0" />
+    <PackageReference Include="NonFactors.Grid.Core.Mvc6" Version="8.0.0" />
     <PackageReference Include="NonFactors.Grid.Mvc6" Version="8.0.0" />
     <PackageReference Include="Pomelo.EntityFrameworkCore.MySql" Version="9.0.0" />
     <PackageReference Include="System.Linq.Dynamic.Core" Version="1.7.4" />      

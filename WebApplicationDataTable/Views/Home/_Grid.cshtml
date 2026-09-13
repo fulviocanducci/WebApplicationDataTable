@@ -1,0 +1,21 @@
+﻿@{Layout = null;}
+@model IQueryable<Citiesofworld>
+@(Html
+    .Grid(Model)
+    .Build(columns =>
+    {
+        columns.Add(model => model.Id).Titled("Id").Formatted("{0:000000}").AppendCss("text-center").Width("12%");
+        columns.Add(model => model.Sigla).Titled("Sigla").AppendCss("text-center").Width("12%");
+        columns.Add(model => model.City).Titled("Cidade").AppendCss("text-start").Width("38%");
+        columns.Add(model => model.AirportName).Titled("Aeroporto").AppendCss("text-start").Width("38%");
+    })
+    .Empty("Nenhum dado encontrado ...")
+    .Css("table table-striped table-hover table-sm")
+    .Filterable()
+    .Sortable()
+    .Pageable(pager =>
+    {
+        pager.RowsPerPage = 8;
+    })
+    .UsingFooter("_GridFooter")
+)
