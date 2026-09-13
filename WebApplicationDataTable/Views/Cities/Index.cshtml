@@ -1,0 +1,40 @@
+﻿<table id="myTable" class="table table-striped table-hover align-middle">
+    <thead>
+        <tr class="table-primary">
+            <th>Id</th>
+            <th>Sigla</th>
+            <th>City</th>
+            <th>Aeroporto</th>
+        </tr>
+    </thead>
+    <tbody>
+    </tbody>
+    <tfoot>
+        <tr>
+            <td colspan="4">Todos os registros</td>
+        </tr>
+    </tfoot>
+</table>
+@section Scripts
+{
+    <script>
+        // Initialise a DataTable
+        const table = new DataTable('#myTable', {
+            language: {
+                url: '/json/datatable-pt-br.json'
+            },
+            ajax: {
+                url: '/cities/data',
+                type: 'POST'
+            },
+            processing: true,
+            serverSide: true,
+            columns: [
+                { data: 'id', name: 'Id', searchable: true },
+                { data: 'sigla', name: 'Sigla', searchable: true },
+                { data: 'city', name: 'City', searchable: true },
+                { data: 'airportName', name: 'AirportName', searchable: true },
+            ]
+        });
+    </script>
+}
